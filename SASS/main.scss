@@ -1,12 +1,16 @@
 @import "variables";
+@import "landing-page";
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap');
+
 
 * {
     font-size: 3vmin;
 }
 
-// body {
-//     background: black;
-// }
+body {
+    font-family: 'Expletus Sans', cursive;;
+}
 
 .character {
     display: flex;
@@ -96,19 +100,6 @@
 	background: rgba(255, 255, 255, 0.02);
 }
 
-
-@for $i from 1 through (10) {
-    $size: random(3)+px;
-    .star:nth-of-type(#{$i}) {
-      top: random(100) + vh;
-      left: random(100) + vw;
-      width: $size;
-      height: $size;
-      animation-delay: random(5) + s;
-    }
-}
-
-
  li:nth-child(1):before {
 	background: #C9FFBF;
 background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
@@ -165,7 +156,6 @@ background: linear-gradient(to right, #0abf89, #0a0002);
 // Designing the modal
 
 .modal {
-    // display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -197,3 +187,157 @@ background: linear-gradient(to right, #0abf89, #0a0002);
     text-decoration: none;
     cursor: pointer;
 }
+
+
+.landing-content {
+    text-align: center;
+}
+#welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 3rem;
+    padding-left: 4rem;
+}
+
+.star-wrapper {
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+}
+#this {
+    font-size: 2rem;
+    transform: translateY(50%);
+    position: relative;
+    animation-name: blink;
+    animation-duration: 4s;
+}
+.star {
+    font-family: 'Nova Square', cursive;
+    font-size: 6rem;
+    margin: 0;
+}
+.star-word {
+    transform: translateY(-60%);
+    position: relative;
+}
+.wars {
+    font-size: 8rem;
+    transform: translateY(10%);
+    position: relative;
+}
+.landing-btn {
+    display: block;
+    background: #680260;
+    transform: translate(70%, -50%);
+    z-index: 1;
+    text-decoration: none;
+    width: 20rem;
+    font-size: 1.5rem;
+    padding: 0.7rem 1rem;
+    font-weight: 1000;
+    color: #b2b2b2;
+    border-radius: 5rem;
+    animation-name: move;
+    animation-duration: 3s;
+}
+
+.wars {
+    animation-name: from-left;
+    animation-duration: 4s;
+  }
+
+  @keyframes from-left {
+    0% {
+      left: -20rem;
+
+    }
+    100% {
+      left: 0rem;
+
+    }
+}
+
+.star-word, #welcome {
+    animation-name: from-right;
+    animation-duration: 4s;
+  }
+
+
+
+  @media(max-width: 940px) {
+      .wars {
+          font-size: 6rem;
+      }
+      .star-word {
+          font-size: 4rem;
+      }
+      .landing-btn {
+          font-size: 1rem;
+          padding: 0.35rem 0.5rem;
+          width:13rem;
+      }
+      #welcome {
+          font-size: 1.5rem;
+      }
+      #this {
+          font-size: 1.2rem;
+      }
+  }
+
+  @media(max-width: 476px) {
+     .star-wrapper {
+         flex-direction: column;
+     }
+      .wars {
+          font-size: 8rem;
+          margin-top: 0;
+          transform: translateY(-20%);
+      }
+      .star-word {
+          font-size: 6rem;
+          transform: translateY(20%);
+          margin-bottom: 0;
+      }
+      .landing-btn {
+          font-size: 1.5rem;
+          padding: 0.4rem 1rem;
+          width:50vw;
+      }
+      #welcome {
+          font-size: 3rem;
+      }
+      #this {
+          font-size: 2rem;
+      }
+  }
+
+  
+
+  @keyframes from-right {
+    0% {
+      left: 40rem;
+
+    }
+    100% {
+      left: 0rem;
+
+    }
+}
+
+@keyframes move {
+    0% {
+      transform: scale(1.5) rotate(-10deg);
+    }
+    50% {
+      transform: scale(0.6) rotate(-10deg);
+    }
+  }
+@keyframes blink {
+    0% {
+      transform: scale(1.5) rotate(-10deg);
+    }
+    50% {
+      transform: scale(0.6) //rotate(-45deg);
+    }
+  }
