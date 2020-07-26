@@ -45,7 +45,32 @@ const createList = data => {
             div1.appendChild(div2);
             div2.classList.add('modal-content');
             div2.appendChild(span);
-            div2.appendChild(ul);
+
+            //create and append image div
+
+            const imageDiv = document.createElement('div')
+            imageDiv.classList = "image-div";
+            const profileDive = document.createElement('div');
+            profileDive.classList = "profile-div";
+            div2.appendChild(imageDiv);
+            div2.appendChild(profileDive);
+            profileDive.appendChild(ul);
+            const maleImage = document.createElement('img');
+            maleImage.src = "../media/male-dummy.png";
+            maleImage.classList = "image";
+            const femaleImage = document.createElement('img');
+            femaleImage.src = "../media/female-dummy.png";
+            maleImage.classList = "image";
+            const notAvailable = document.createElement('img');
+            notAvailable.src = "../media/no-gender.png"
+            notAvailable.classList = "image";
+            if(user.gender === "female") {
+                imageDiv.appendChild(femaleImage);
+            }else if(user.gender === "male") {
+                imageDiv.appendChild(maleImage);
+            }else {
+                imageDiv.appendChild(notAvailable)
+            }
             span.classList.add(closedButton);
             span.textContent = 'x';
             button.parentElement.appendChild(div1);

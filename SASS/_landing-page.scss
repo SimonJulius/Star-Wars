@@ -208,9 +208,9 @@
   }
 @keyframes blink {
     0% {
-      transform: scale(1.5) rotate(-10deg);
+      transform: scale(1.5);
     }
     50% {
-      transform: scale(0.6) //rotate(-45deg);
-    }
+      transform: scale(0.6);
   }
+}

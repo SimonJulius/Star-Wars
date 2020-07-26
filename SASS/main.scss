@@ -11,6 +11,13 @@
 body {
     font-family: 'Expletus Sans', cursive;;
 }
+.list__page {
+background: url(./../media/sean-thomas-Tb7thpfzrc0-unsplash.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .character {
     display: flex;
@@ -169,13 +176,36 @@ background: linear-gradient(to right, #0abf89, #0a0002);
     background: #f4f4f4;
     margin: 10% auto;
     color: black;
-    padding: 2rem;
-    width: 50vw;
+    padding: 0rem;
+    width: 60vw;
+    height: 60vh;
     border-top-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     box-shadow: 0 5px 8px 0 #f37f7f77, 0 7px 20px 0 #f37f7f59;
+    overflow: hidden;
 }
 
+// profile image design
+
+.modal-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-div {
+    background: #444;
+    width: 50%;
+}
+
+.profile-div {
+    width: 50%;
+    background: rgb(172, 155, 2);
+}
+.image {
+    width: 100%;
+    height: auto;
+    background: #444;
+}
 .close-button {
     float: right;
     color: #ccc;
@@ -187,3 +217,26 @@ background: linear-gradient(to right, #0abf89, #0a0002);
     text-decoration: none;
     cursor: pointer;
 }
+
+// list animation
+
+.character {
+    animation-name: from-right;
+    // animation-duration: 5s;
+}
+
+@for $i from 1 through (10) {
+    .character:nth-of-type(#{$i}) {
+      animation-duration: 12 - #{$i} + s;
+    }
+  }
+// @for $i from 1 through (300) {
+//     $size: random(3)+px;
+//     .star:nth-of-type(#{$i}) {
+//       top: random(100) + vh;
+//       left: random(100) + vw;
+//       width: $size;
+//       height: $size;
+//       animation-delay: random(5) + s;
+//     }
+//   }
