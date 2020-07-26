@@ -185,6 +185,11 @@ background: linear-gradient(to right, #0abf89, #0a0002);
     overflow: hidden;
 }
 
+
+.modal-content span {
+    transform: translate(5300%, -2%);
+}
+
 // profile image design
 
 .modal-content {
@@ -200,6 +205,23 @@ background: linear-gradient(to right, #0abf89, #0a0002);
 .profile-div {
     width: 50%;
     background: rgb(172, 155, 2);
+}
+.profile-div h4 {
+    font-size: 8rem;
+    border-bottom: solid 2px black;
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 2rem;
+
+}
+
+
+.profile-div ul li{
+    position: relative;
+    list-style: none;
+    line-height: 2;
+    font-size: 1.2rem;
+    left: 4px;
 }
 .image {
     width: 100%;
@@ -230,13 +252,3 @@ background: linear-gradient(to right, #0abf89, #0a0002);
       animation-duration: 12 - #{$i} + s;
     }
   }
-// @for $i from 1 through (300) {
-//     $size: random(3)+px;
-//     .star:nth-of-type(#{$i}) {
-//       top: random(100) + vh;
-//       left: random(100) + vw;
-//       width: $size;
-//       height: $size;
-//       animation-delay: random(5) + s;
-//     }
-//   }

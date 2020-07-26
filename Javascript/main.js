@@ -33,9 +33,9 @@ const createList = data => {
             const li2 = document.createElement('li');
             const li3 = document.createElement('li');
             let modal;
-            li1.textContent = user.name;
-            li2.textContent = user.gender;
-            li3.textContent = user.height;
+            li1.textContent = "Name: " + user.name;
+            li2.textContent = "Gender: " + user.gender;
+            li3.textContent = "Height: " + user.height;
             ul.appendChild(li1);
             ul.appendChild(li2);
             ul.appendChild(li3);
@@ -54,6 +54,9 @@ const createList = data => {
             profileDive.classList = "profile-div";
             div2.appendChild(imageDiv);
             div2.appendChild(profileDive);
+            const profileHeader = document.createElement("h4");
+            profileDive.textContent = "PROFILE";
+            profileDive.appendChild(profileHeader);
             profileDive.appendChild(ul);
             const maleImage = document.createElement('img');
             maleImage.src = "../media/male-dummy.png";
