@@ -7,7 +7,6 @@
     padding: 0;
     font-size: 1rem;
     line-height: 2;
-    color: #333;
     overflow-x: hidden;
 }
 
@@ -189,7 +188,7 @@
 
   @keyframes from-right {
     0% {
-      left: 40rem;
+      left: 80rem;
 
     }
     100% {
@@ -208,9 +207,12 @@
   }
 @keyframes blink {
     0% {
-      transform: scale(1.5);
+      transform: scale(0);
     }
     50% {
-      transform: scale(0.6);
+      transform: scale(0.5);
+  }
+  100% {
+      transform: scale(1)
   }
 }

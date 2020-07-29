@@ -5,33 +5,55 @@
 
 
 * {
-    font-size: 3vmin;
+    font-size: 4vmin;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-    font-family: 'Expletus Sans', cursive;;
+#list__page {
+    font-family: 'Expletus Sans', cursive;
+    height:fit-content;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
 }
-.list__page {
-background: url(./../media/sean-thomas-Tb7thpfzrc0-unsplash.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
+#list__page #container {
+    max-width: 50%;
+    margin-left: 0;
+}
+
+#header {
+    font-family: 'Nova Square', cursive;
+    text-align: center;
+    font-size: 4rem;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .character {
-    display: flex;
-    justify-content: space-between;
-	width: 50vw;
+	width: 100%;
 	padding: 2rem 4rem;
 	position: relative;
 	margin: 1rem 0rem;
 	font-family: 'helvetica', san-serif;
-	height: fit-content;
+	height: 3rem;
 	background: $primary;
 	border: 1px solid #252727;
     text-align: center;
-    font-size: 150%;
+    font-size: 100%;
 }
 
 .btn {
@@ -42,12 +64,12 @@ background: url(./../media/sean-thomas-Tb7thpfzrc0-unsplash.jpg) no-repeat cente
 	position: relative;
 	transition: all 0.3s ease-in-out;
     transform: translateY(-1em);
-    font-size: 1.2rem;
+    font-size: 0.5rem;
     opacity: 0;
 	cursor: pointer;
     overflow: hidden;
     height: fit-content;
-    padding: 0.6rem 4rem;
+    padding: 0.3rem 2rem;
 }
 
 .btn:before {
@@ -61,7 +83,7 @@ background: url(./../media/sean-thomas-Tb7thpfzrc0-unsplash.jpg) no-repeat cente
 	left: -140px;
 	border-radius: 0 20px 20px 0;
 	z-index: -1;
-	transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 	
 }
 
@@ -82,6 +104,7 @@ background: url(./../media/sean-thomas-Tb7thpfzrc0-unsplash.jpg) no-repeat cente
     color: $primary_text;
     display: flex;
     flex-direction: column;
+    // margin: 0 20rem;
     align-items: center;
 }
 
@@ -154,8 +177,8 @@ background: linear-gradient(to right, #232426, #889000);
 }
 li:nth-child(10):before {
 	background: #220f74;
-background: -webkit-linear-gradient(to right, #0abf89, #0a0002);
-background: linear-gradient(to right, #0abf89, #0a0002);
+    background: -webkit-linear-gradient(to right, #0abf89, #0a0002);
+    background: linear-gradient(to right, #0abf89, #0a0002);
 }
 
 
@@ -198,7 +221,6 @@ background: linear-gradient(to right, #0abf89, #0a0002);
 }
 
 .image-div {
-    background: #444;
     width: 50%;
 }
 
@@ -207,7 +229,7 @@ background: linear-gradient(to right, #0abf89, #0a0002);
     background: rgb(172, 155, 2);
 }
 .profile-div h4 {
-    font-size: 8rem;
+    font-size: 2rem;
     border-bottom: solid 2px black;
     margin-top: 0;
     padding: 0;
@@ -219,9 +241,16 @@ background: linear-gradient(to right, #0abf89, #0a0002);
 .profile-div ul li{
     position: relative;
     list-style: none;
-    line-height: 2;
-    font-size: 1.2rem;
+    line-height: 3;
+    font-size: 0.8rem;
     left: 4px;
+    animation-name: from-left;
+    animation-duration: 1s;
+    font-family: 'Nova Square', cursive;
+    .name{
+        margin-top: 20%;
+        background: red;
+    }
 }
 .image {
     width: 100%;
@@ -232,23 +261,61 @@ background: linear-gradient(to right, #0abf89, #0a0002);
     float: right;
     color: #ccc;
     font-size: 1.5rem;
+        &:hover, &:focus {
+            color: #252727;
+            text-decoration: none;
+        }   cursor: pointer;
+}
+//Media querries
+
+@media(max-width: 900) {
+    .character .btn {
+        transform: translateY(10px);
+        opacity: 1;
+    }
+    
+    
+    .btn {
+        left: 0;
+        opacity: 1;
+    }
+    .btn {
+        color: #262a2b;
+    }
+}
+@media(max-width: 600px) {
+    .name__list {
+        padding: 0rem 5rem;
+    }
+    .modal-content {
+        flex-direction: column;
+        height: 85%;
+        & .profile-div {
+            height: 50%;
+            width: 100%;
+        }
+        .profile-div{
+            height: 50%;
+        }
+        & span {
+            transform: translate(40%, -3%);
+        }
+    }
+    
 }
 
-.close-button:hover, .close-button:focus {
-    color: #252727;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 // list animation
 
+
 .character {
     animation-name: from-right;
-    // animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-duration: 1s;
 }
 
-@for $i from 1 through (10) {
-    .character:nth-of-type(#{$i}) {
-      animation-duration: 12 - #{$i} + s;
+@for $i from 1 through 10 {
+        .character:nth-of-type(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
     }
-  }
+}

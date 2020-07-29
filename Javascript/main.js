@@ -12,6 +12,7 @@ const fetchl = () => {
 }
 fetchl();
 const createList = data => {
+    const imageDiv = document.createElement('div');
     for (let element of data) {
         let listItem = document.createElement('li');
         listItem.classList.add('character');
@@ -28,6 +29,15 @@ const createList = data => {
             const div1 = document.createElement('div');
             // div1.style.width = 100%
             const div2 = document.createElement('div');
+            const imagesArr = ['Luke Skywalker','C3PO','R2-D2','Darth Varder','Leia Organa','Owen Lars','Beru Whitesun Iars','R5-D4','Biggs Darklighter','Obi Wan Kenobi'];
+            
+            for (let i = 0; i < imagesArr.length; ++i) {
+                if(imagesArr[i] === user.name) {
+                    console.log(user.name);
+                    console.log(imagesArr[i]);
+                    div2.style.backgroundImage = `url('../media/${user.name}.jpg')`
+                }
+            }
             const ul = document.createElement('ul');
             const li1 = document.createElement('li');
             const li2 = document.createElement('li');
@@ -48,7 +58,6 @@ const createList = data => {
 
             //create and append image div
 
-            const imageDiv = document.createElement('div')
             imageDiv.classList = "image-div";
             const profileDive = document.createElement('div');
             profileDive.classList = "profile-div";
@@ -58,30 +67,15 @@ const createList = data => {
             profileDive.textContent = "PROFILE";
             profileDive.appendChild(profileHeader);
             profileDive.appendChild(ul);
-            const maleImage = document.createElement('img');
-            maleImage.src = "../media/male-dummy.png";
-            maleImage.classList = "image";
-            const femaleImage = document.createElement('img');
-            femaleImage.src = "../media/female-dummy.png";
-            maleImage.classList = "image";
-            const notAvailable = document.createElement('img');
-            notAvailable.src = "../media/no-gender.png"
-            notAvailable.classList = "image";
-            if(user.gender === "female") {
-                imageDiv.appendChild(femaleImage);
-            }else if(user.gender === "male") {
-                imageDiv.appendChild(maleImage);
-            }else {
-                imageDiv.appendChild(notAvailable)
-            }
             span.classList.add(closedButton);
             span.textContent = 'x';
             button.parentElement.appendChild(div1);
             span.addEventListener('click', () => {
                 listItem.removeChild(div1);
             })
+            div1.addEventListener('click', () => {
+                listItem.removeChild(div1);
+            })
         })
     }
 }
-
-// Button click event
